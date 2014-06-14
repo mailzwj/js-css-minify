@@ -1,0 +1,23 @@
+extends layout
+
+block content
+    div.header= title
+    div.body.clearfix
+        div.in-code-box
+            textarea.code-area.in-code#J_InCode(placeholder="请粘帖您的代码")
+        div.selection-box
+            p.row
+                label(for="J_Cn2U")
+                    input.checkbox#J_Cn2U(type="checkbox")
+                    | 中文转Unicode
+            p.row
+                input.btn.btn-submit#J_JsCode(type="button", value="JS 压 缩 >")
+            p.row
+                input.btn.btn-submit#J_CssCode(type="button", value="CSS 压 缩 >")
+        div.out-code-box
+            textarea.code-area.out-code#J_OutCode
+    div.footer
+        &copy; Copyright by 郑
+
+    script(src="http://code.jquery.com/jquery-1.9.0.min.js")
+    script(src="/javascripts/getcode.js")
