@@ -10,6 +10,7 @@ $(function(){
     function getCode(data) {
         $.ajax({
             url: url,
+            type: "post",
             data: data,
             dataType: "jsonp",
             success: function(data) {
@@ -25,7 +26,7 @@ $(function(){
     jsBtn.on("click", function(){
         if (inCode.val()) {
             params = {
-                code: inCode.val(),
+                code: encodeURIComponent(inCode.val()),
                 cn: Number(cn2u.prop("checked")),
                 type: "js"
             };
@@ -38,7 +39,7 @@ $(function(){
     cssBtn.on("click", function(){
         if (inCode.val()) {
             params = {
-                code: inCode.val(),
+                code: encodeURIComponent(inCode.val()),
                 cn: Number(cn2u.prop("checked")),
                 type: "css"
             };

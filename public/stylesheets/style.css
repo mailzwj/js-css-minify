@@ -47,6 +47,15 @@ body {
     color: #666;
 }
 
+.blog-link {
+	color: #39f;
+  	text-decoration: none;
+}
+
+.blog-link:hover {
+	text-decoration: underline;
+}
+
 .in-code-box,
 .selection-box,
 .out-code-box {
@@ -56,8 +65,8 @@ body {
 
 .code-area {
     padding: 10px;
-    width: 340px;
-    height: 130px;
+    width: 360px;
+    height: 180px;
     border: 1px solid #ccc;
     border-radius: 4px;
     resize: none;

@@ -9,15 +9,17 @@ var CleanCss = require("clean-css");
 //     }
 // }
 
-router.get('/', function(req, res) {
-    var code = req.query && req.query["code"],
+router.post('/', function(req, res) {
+    // console.log(req.params);
+    var code = req.body && req.body["code"],
         cb = req.query && req.query["callback"] ? req.query["callback"] : "jsonp",
-        cn2unicode = req.query && req.query["cn"],
-        type = req.query && req.query["type"],
+        cn2unicode = req.body && req.body["cn"],
+        type = req.body && req.body["type"],
         result = {},
         minCode = null,
         ast = null;
-
+    // console.log(type);
+    code = decodeURIComponent(code);
     if (type == "js") {
         minCode = Uglify.minify(code, {
             fromString: true,
@@ -31,7 +33,6 @@ router.get('/', function(req, res) {
 
         if (minCode) {
             result.status = "success";
-            result.message = "压缩成功";
             result.minify = minCode;
         } else {
             result.status = "failure";
