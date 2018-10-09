@@ -5,7 +5,7 @@ js-css-minify
 
 ## Preview
 
-![JS-CSS-Minify](http://www.seejs.com/wp-content/uploads/2014/06/js-css-minify.jpg "JS-CSS-Minify")
+![JS-CSS-Minify](./js-css-minify.png "JS-CSS-Minify")
 
 ## Install
 
