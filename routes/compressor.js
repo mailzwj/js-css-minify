@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var babel = require('@babel/core');
 var Uglify = require("uglify-js");
 var CleanCss = require("clean-css");
 
@@ -21,15 +22,20 @@ router.post('/', function(req, res) {
     // console.log(type);
     code = decodeURIComponent(code);
     if (type == "js") {
+        const babelCode = babel.transformSync(code, {
+            presets: ['env']
+        });
+        code = babelCode.code;
         minCode = Uglify.minify(code, {
-            fromString: true,
-            ascii_only: true
+            output: {
+                ascii_only: +cn2unicode ? true : false
+            }
         });
 
-        if (+cn2unicode) {
-            ast = Uglify.parse(minCode.code);
-            minCode.code = ast.print_to_string({ascii_only: true});
-        }
+        // if (+cn2unicode) {
+        //     ast = Uglify.parse(minCode.code);
+        //     minCode.code = ast.print_to_string({ascii_only: true});
+        // }
 
         if (minCode) {
             result.status = "success";
