@@ -9,7 +9,7 @@
         "@babel/core": "^7.1.2",
         "babel-preset-env": "^1.7.0",
         "body-parser": "^1.18.3",
-        "clean-css": "2.2.*",
+        "clean-css": "^4.1.11",
         "cookie-parser": "^1.4.3",
         "debug": "^4.1.0",
         "express": "^4.16.3",
